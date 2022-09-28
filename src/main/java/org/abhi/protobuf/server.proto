@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package org.abhi;
+
+option java_multiple_files = true;
+
+service Services {
+  rpc insertRecord(Request) returns (Response);
+  rpc updateRecord(Request) returns (Response);
+  rpc deleteRecord(Request) returns (Response);
+  rpc deleteCollection(Request) returns (Response);
+  rpc deleteDBCollections(Request) returns (Response);
+  rpc showRecord(Request) returns (Response);
+  rpc showCollection(Request) returns (Response);
+  rpc showDBCollections(Request) returns (Response);
+}
+
+message Request {
+  string restRequest = 1;
+  string databaseName = 2;
+  string collectionName = 3;
+}
+
+message Response {
+  string restRequest = 1;
+  string databaseName = 2;
+  string collectionName = 3;
+}
